@@ -1,3 +1,4 @@
+"use strict";
 /*Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
 
 Consider the number of unique elements in nums to be k​​​​​​​​​​​​​​. After removing duplicates, return the number of unique elements k.
@@ -18,33 +19,24 @@ for (int i = 0; i < k; i++) {
     assert nums[i] == expectedNums[i];
 }
 If all assertions pass, then your solution will be accepted.*/
-
-
 // Input: nums = [0,0,1,1,1,2,2,3,3,4]
 // Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-
 //1 <= nums.length <= 3 * 104
 //-100 <= nums[i] <= 100
 // nums is sorted in non-decreasing order.
-
 //[0,0,1,1,2,3,3,4]
-function removeDuplicateInPlaceAndReturnUniquesCount(nums:number[]):number{
-let x:number=0;
-
-for (let i:number=0;i<nums.length;i++)
-{
-if(nums[i]>nums[x])
-{
-    x++;
-   let temp:number=0;
-   temp=nums[x];
-   nums[x]=nums[i];
-   nums[i]=temp;
+function removeDuplicateInPlaceAndReturnUniquesCount(nums) {
+    let x = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > nums[x]) {
+            x++;
+            let temp = 0;
+            temp = nums[x];
+            nums[x] = nums[i];
+            nums[i] = temp;
+        }
+    }
+    return x + 1;
 }
-}
-return x+1;  
-}
-
-
-let nums:number[]=[0,0,1,1,2,3,3,4];
+let nums = [0, 0, 1, 1, 2, 3, 3, 4];
 console.log(removeDuplicateInPlaceAndReturnUniquesCount(nums));
