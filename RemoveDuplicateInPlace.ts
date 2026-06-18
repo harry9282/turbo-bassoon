@@ -28,23 +28,23 @@ If all assertions pass, then your solution will be accepted.*/
 // nums is sorted in non-decreasing order.
 
 //[0,0,1,1,2,3,3,4]
+
 function removeDuplicateInPlaceAndReturnUniquesCount(nums:number[]):number{
-let x:number=0;
+let x:number=1;
 
-for (let i:number=0;i<nums.length;i++)
+for (let i:number=1;i<nums.length;i++)
 {
-if(nums[i]>nums[x])
+if(nums[i]>nums[x-1])
 {
-    x++;
-   let temp:number=0;
-   temp=nums[x];
+   
    nums[x]=nums[i];
-   nums[i]=temp;
+   x++;
+  
 }
 }
-return x+1;  
-}
+return x;  
+};
 
 
-let nums:number[]=[0,0,1,1,2,3,3,4];
-console.log(removeDuplicateInPlaceAndReturnUniquesCount(nums));
+let num:number[]=[0,0,1,1,2,3,3,4];
+console.log(removeDuplicateInPlaceAndReturnUniquesCount(num));
